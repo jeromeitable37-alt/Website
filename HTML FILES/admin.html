@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Guidance Office</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fa;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background: #333;
+    padding: 15px 30px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+nav a:hover { color: #42a5f5; }
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 40px;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.admin-box {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admin-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.admin-box i {
+    font-size: 50px;
+    color: #1976d2;
+    margin-bottom: 20px;
+}
+
+.admin-box h3 { margin-bottom: 10px; }
+.admin-box p { font-size: 14px; color: #555; }
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    background: #333;
+    color: white;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <p>Guidance Office Management Panel</p>
+</header>
+
+<nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Welcome, Admin 👋</h2>
+
+    <div class="admin-grid">
+
+        <!-- Announcements -->
+        <div class="admin-box" onclick="location.href='announcements.html'">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Manage Announcements</h3>
+            <p>Create and edit announcements</p>
+        </div>
+
+        <!-- Appointments (Jotform Submissions) -->
+        <div class="admin-box"
+             onclick="window.open('https://www.jotform.com/app/260275105821450','_blank')">
+            <i class="fas fa-calendar-check"></i>
+            <h3>View Appointments</h3>
+            <p>See all appointment submissions</p>
+        </div>
+
+        <!-- Messages (Jotform Submissions) -->
+        <div class="admin-box"
+             onclick="window.open('https://www.jotform.com/app/260274589719471','_blank')">
+            <i class="fas fa-envelope"></i>
+            <h3>View Messages</h3>
+            <p>Read all inquiries & messages</p>
+        </div>
+
+        <!-- Users -->
+        <div class="admin-box" 
+      onclick="window.open('https://www.jotform.com/app/260274589719471','_blank')">
+            <i class="fas fa-users"></i>
+            <h3>Registered Users</h3>
+            <p>View system users</p>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Guidance Office</p>
+</footer>
+
+<script>
+function logout() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("role");
+    window.location.href = "login.html";
+}
+
+if (
+    localStorage.getItem("loggedIn") !== "true" ||
+    localStorage.getItem("role") !== "admin"
+) {
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

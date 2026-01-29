@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guidance Office - Counselors</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+.page-header {
+    position: relative;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.header-content h1 { font-size: 3rem; margin: 0.2em 0; }
+.header-content p { font-size: 1.3rem; }
+
+/* Navigation */
+nav {
+    background: rgba(33,33,33,0.9);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffeb3b;
+    transform: translateY(-3px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 50%;
+    background: #ffeb3b;
+    transition: all 0.3s ease;
+}
+
+nav a:hover::after { width: 100%; left: 0; }
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+/* Counselor Cards */
+.counselor {
+    display: flex;
+    margin-bottom: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f3e5f5, #e1f5fe);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.counselor:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(25,118,210,0.3);
+}
+
+.counselor img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 5px solid #42a5f5;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.counselor img:hover { transform: scale(1.1); }
+
+.counselor h3 { margin: 0 0 10px; color: #1976d2; }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #333;
+    color: white;
+}
+
+footer a {
+    color: #42a5f5;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+footer a:hover { color: #ffeb3b; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .counselor { flex-direction: column; text-align: center; }
+    nav { flex-direction: column; }
+    .header-content h1 { font-size: 2.2rem; }
+    .header-content p { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="page-header">
+    <div class="header-content">
+        <i class="fas fa-users" style="font-size:3rem;"></i>
+        <h1>Guidance Counselors</h1>
+        <p>Meet the professionals dedicated to supporting students</p>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About the Office</a>
+    <a href="service.html"><i class="fas fa-cogs"></i> Services Offered</a>
+    <a href="counselors.html"><i class="fas fa-users"></i> Guidance Counselors</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Appointments & Contact</a>
+    <a href="#" onclick="logout()">Logout</a>
+</nav>
+
+<div class="container">
+    <h2>Meet Our Counselors</h2>
+    <p>Our team of certified guidance counselors are here to support your academic, career, and personal development.</p>
+
+    <div class="counselor">
+        <img src="Jerome.jpg" alt="Jerome Itable">
+        <div>
+            <h3>Jerome Itable, Lead Counselor</h3>
+            <p>Specializes in academic advising and college prep. Available Mondays & Wednesdays, 9 AM–4 PM.</p>
+        </div>
+    </div>
+
+    <div class="counselor">
+        <img src="ian.jpg" alt="Jullian Figuroa">
+        <div>
+            <h3>Jullian Figuroa, Career Specialist</h3>
+            <p>Focuses on vocational guidance and internships. Available Tuesdays & Thursdays, 10 AM–3 PM.</p>
+        </div>
+    </div>
+
+    <div class="counselor">
+        <img src="Mira.jpg" alt="Mira Tuya">
+        <div>
+            <h3>Mira Tuya, Wellness Counselor</h3>
+            <p>Handles personal counseling and mental health support. Available Fridays, 8 AM–12 PM.</p>
+        </div>
+    </div>
+
+    <div class="counselor">
+        <img src="Barcillo.jpg" alt="Gabrielle Barcillo">
+        <div>
+            <h3>Gabrielle Barcillo, Student Support Counselor</h3>
+            <p>Provides support for social and emotional development. Available Mondays, 10 AM–3 PM.</p>
+        </div>
+    </div>
+
+    <p>All counselors are certified professionals committed to your privacy and success. Contact us to connect with the right counselor.</p>
+
+    <h3>Availability Calendar</h3>
+    <p>Check our <a href="contact.html">booking page</a> for real-time slots.</p>
+</div>
+
+<footer>
+    <p>&copy; 2026 Guidance Office</p>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+</footer>
+
+<script>
+// Login protection
+if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+}
+
+// Logout function
+function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

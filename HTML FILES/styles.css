@@ -1,0 +1,512 @@
+/* ---------------------------- General Styles ---------------------------- */
+
+/* Full-page background image */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+
+    background-image: url('background.jpg'); /* Your downloaded background image */
+    background-size: cover;         /* Fill the entire page */
+    background-position: center;    /* Center the image */
+    background-repeat: no-repeat;   /* Don't tile */
+    background-attachment: fixed;   /* Stays fixed when scrolling */
+    position: relative;
+}
+
+/* Optional: Dark overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 40% opacity black overlay */
+    z-index: -1;
+}
+
+/* Remove header image overlay */
+header::before {
+    display: none;
+}
+
+header {
+    background: rgba(25, 118, 210, 0.7); /* semi-transparent header to see background */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+nav {
+    background: rgba(33, 33, 33, 0.9);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+}
+
+nav a {
+    color: white;
+    margin: 0 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: #ffeb3b;
+    transform: translateY(-5px);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: #ffeb3b;
+    transition: all 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+.download-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 10px;
+}
+.download-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #1976d2;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #42a5f5;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(25, 118, 210, 0.4);
+    color: #ffeb3b;
+}
+
+
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency so background shows */
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #333;
+    color: white;
+}
+
+footer a {
+    color: #42a5f5;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ffeb3b;
+}
+
+/* ---------------------------- Animations ---------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------- Responsive Design ---------------------------- */
+@media (max-width: 768px) {
+    nav { flex-direction: column; }
+    .container { margin: 20px; padding: 20px; }
+}
+
+/* ---------------------------- Hero and Carousel ---------------------------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.hero img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.hero:hover img {
+    transform: scale(1.05);
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 600px; /* SAME height for all images */
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* 🔥 THIS fixes the size issue */
+    display: none;
+}
+
+.carousel img.active {
+    display: block;
+}
+
+/* ---------------------------- Quick Links ---------------------------- */
+.quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+
+
+.quick-links a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ---------------------------- Sections for Other Pages ---------------------------- */
+.section, .service, .counselor, .contact-info div {
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.section img, .service img, .counselor img {
+    border-radius: 15px;
+    transition: transform 0.4s ease;
+}
+
+.section img:hover, .service img:hover, .counselor img:hover {
+    transform: scale(1.05);
+}
+
+/* Specific tweaks */
+.service, .counselor {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.service:hover, .counselor:hover, .contact-info div:hover {
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+form {
+    margin-top: 30px;
+    display: grid;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 15px;
+    border: 2px solid #42a5f5;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #1976d2;
+    outline: none;
+}
+
+button {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+.section.vision {
+    text-align: center;
+}
+
+.mv-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.mv-box {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.mv-box:hover {
+    transform: translateY(-8px);
+}
+
+.mv-box i {
+    font-size: 45px;
+    color: #1976d2;
+    margin-bottom: 15px;
+    display: block; /* forces text to go DOWN */
+}
+
+.mv-box h3 {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.mv-box p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+/* -------------------- PAGE HEADER (All Pages) -------------------- */
+/* -------------------- INTERACTIVE PAGE HEADER -------------------- */
+.page-header {
+    position: relative;
+    height: 300px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    cursor: default;
+
+    /* Default gradient in case image fails */
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    transition: all 0.5s ease;
+}
+
+/* Add a background image */
+.page-header.bg-image {
+    background: url('header.jpg') center/cover no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* Overlay with animation */
+.page-header .header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px); /* subtle blur */
+    transition: background 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+/* Interactive effect on hover */
+.page-header:hover .header-overlay {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(0px);
+}
+
+/* Header content */
+.page-header .header-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeDown 1s ease;
+    transform: translateY(0);
+    transition: transform 0.5s ease;
+}
+
+.page-header:hover .header-content {
+    transform: translateY(-10px); /* subtle lift on hover */
+}
+
+/* Icon */
+.page-header i {
+    font-size: 55px;
+    margin-bottom: 10px;
+    color: #ffeb3b;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.page-header:hover i {
+    transform: rotate(15deg) scale(1.1);
+    color: #ffffff;
+}
+
+/* Title */
+.page-header h1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin: 10px 0;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: text-shadow 0.5s ease;
+}
+
+.page-header:hover h1 {
+    text-shadow: 0 6px 20px rgba(0,0,0,0.7);
+}
+
+/* Subtitle */
+.page-header p {
+    font-size: 16px;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+}
+
+.page-header:hover p {
+    opacity: 1;
+}
+
+/* Fade-down animation */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+    .page-header {
+        height: 220px;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .page-header i {
+        font-size: 40px;
+    }
+}
+/* ---------- LOGIN & REGISTER ---------- */
+.auth-page {
+    min-height: 100vh;
+    background: url('background.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-box {
+    background: rgba(255,255,255,0.95);
+    padding: 40px;
+    width: 350px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.auth-box h2 {
+    margin-bottom: 25px;
+    color: #1976d2;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid #42a5f5;
+    font-size: 15px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg,#1976d2,#42a5f5);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    transform: scale(1.05);
+}
+
+.auth-box a {
+    color: #1976d2;
+    font-weight: 600;
+    text-decoration: none;
+}
+.admin-header {
+    background: linear-gradient(135deg, #1976d2, #42a5f5);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.admin-box {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.admin-box i {
+    font-size: 40px;
+    color: #1976d2;
+    margin-bottom: 15px;
+}
+
+.admin-box h3 {
+    font-size: 18px;
+    font-weight: 600;
+}

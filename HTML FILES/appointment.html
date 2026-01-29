@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Form</title>
+</head>
+<body>
+
+<h2>Book an Appointment</h2>
+
+<form action="save_appointment.php" method="POST">
+    <input type="text" name="student_name" placeholder="Your Name" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <input type="date" name="appointment_date" required><br><br>
+    <input type="time" name="appointment_time" required><br><br>
+    <textarea name="concern" placeholder="Your concern"></textarea><br><br>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
